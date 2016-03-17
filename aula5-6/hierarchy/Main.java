@@ -10,6 +10,8 @@ public class Main {
             showStudent((Student)p);
         } else if (p instanceof Employee) {
             showEmployee((Employee)p);
+        } else if (p instanceof Faculty) {
+            /// ...
         } else {
             showPerson(p);
         }
@@ -39,9 +41,22 @@ public class Main {
         Person p = new Employee("maria", "adeetc");
         Student s = new Student("jose", 12345);
 
-        show(p);
-        show(s);
-        show(new Person("manuel"));
+        s.equals(null);
+
+        Employee e = (Employee) p;
+        e.getDepartment();
+
+        /* lança excepção */
+        //Student e = (Student) p;
+        //e.getNumber();
+
+        Object o = p;
+        o = e;
+        System.out.println(o);
+
+        //e.show();
+        //Faculty f = new Faculty("a", "d", "c");
+        //f.show();
     }
 }
 

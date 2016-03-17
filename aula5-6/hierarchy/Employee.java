@@ -15,4 +15,11 @@ public class Employee extends Person {
     public String getDepartment() {
         return department;
     }
+
+    public String toString() {
+        return "Employee {\n" +
+         "\t" + getName() + "\n" +
+         "\t" + department + "\n" +
+         "}";
+    }
 }

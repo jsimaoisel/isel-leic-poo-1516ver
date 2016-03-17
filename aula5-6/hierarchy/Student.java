@@ -18,4 +18,11 @@ public class Student extends Person {
     public void setNumber(int number) {
         this.number = number;
     }
+
+    public String toString() {
+        return "Student {" +
+                "\t" + getName() +
+                "\t" + number +
+                "}";
+    }
 }
