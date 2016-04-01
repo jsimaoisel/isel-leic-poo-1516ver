@@ -1,5 +1,5 @@
 
-public class Constant extends Expression {
+public class Constant implements Expression {
     private double value;
 
     public Constant(double d) {
