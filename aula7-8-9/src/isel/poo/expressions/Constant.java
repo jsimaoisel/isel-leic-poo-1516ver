@@ -1,3 +1,4 @@
+package isel.poo.expressions;
 
 public class Constant implements Expression {
     private double value;

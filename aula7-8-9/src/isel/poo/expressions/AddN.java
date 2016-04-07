@@ -1,3 +1,4 @@
+package isel.poo.expressions;
 
 public class AddN extends NaryOperator {
 
@@ -9,7 +10,7 @@ public class AddN extends NaryOperator {
         double value = 0;
         /*
         for (int i=0; i<expressions.length; ++i) {
-            Expression e = expressions[i];
+            isel.poo.expressions.Expression e = expressions[i];
             value += e.eval();
         }
         */

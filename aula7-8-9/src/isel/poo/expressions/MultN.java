@@ -1,3 +1,4 @@
+package isel.poo.expressions;
 
 public class MultN extends NaryOperator {
 

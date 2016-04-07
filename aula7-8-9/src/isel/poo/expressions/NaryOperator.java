@@ -1,3 +1,4 @@
+package isel.poo.expressions;
 
 public abstract class NaryOperator implements Expression {
 
