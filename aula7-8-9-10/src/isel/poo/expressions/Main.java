@@ -1,5 +1,11 @@
 package isel.poo.expressions;
 
+import java.util.*;
+
+class Student {
+
+}
+
 public class Main {
 
     public static void main(String[] args) {
@@ -28,25 +34,44 @@ public class Main {
         System.out.println(
                 mult6.stringify() + " = " + mult6.eval()
         );*/
-
+/*
         Expression exp = new AddN(new Variable("a"), new Constant(1));
         System.out.println(exp.stringify());
-
+*/
         Variable.allVariables = new VariablesList();
         Variable.allVariables.setVar("a", 10);
         Variable.allVariables.setVar("ab", 5);
         Variable.allVariables.setVar("x", 2);
 
-        System.out.println(exp.eval()); // avalia para 11
+        /*System.out.println(exp.eval()); // avalia para 11
 
         Variable.allVariables.setVar("a", 1);
-        System.out.println(exp.eval()); // avalia para 2
+        System.out.println(exp.eval()); // avalia para 2*/
 
-        String a = Variable.allVariables.getFirst();
-        System.out.println(a);
-        while ((a = Variable.allVariables.getNext()) != null) {
-            System.out.println(a);
+        VariablesList list = Variable.allVariables;
+        listAll(list);
+
+        ArrayList<String> strings = new ArrayList<String>();
+        strings.add("ola");
+        strings.add("mundo!");
+        for (int i=0; i<strings.size(); ++i) {
+            String s = strings.get(i);
+            // ...
         }
+        listAll(strings);
 
+        ArrayList<Variable> variable = new ArrayList<Variable>();
+        variable.add(new Variable("v1"));
+        variable.add(new Variable("v2"));
+        listAll(variable);
+
+    }
+
+    public static void listAll(Iterable iterable) {
+        Iterator it = iterable.iterator();
+        while (it.hasNext()) {
+            Object o = it.next();
+            System.out.println(o);
+        }
     }
 }

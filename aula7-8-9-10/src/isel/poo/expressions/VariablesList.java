@@ -1,5 +1,7 @@
 package isel.poo.expressions;
 
+import java.util.Iterator;
+
 /**
  * Created by jsimao on 05-04-2016.
  */
@@ -10,10 +12,26 @@ class PairNameValueNode {
     public PairNameValueNode next;
 }
 
-public class VariablesList {
+class VariableIterator implements Iterator {
+    private PairNameValueNode curr;
+    public VariableIterator(PairNameValueNode first) {
+        curr = first;
+    }
+    public boolean hasNext() {
+        return curr != null;
+    }
+    public Object next() {
+        String n = curr.name;
+        curr = curr.next;
+        return n;
+    }
+}
+
+public class VariablesList implements Iterable {
 
     // tabela de nomes de variaveis e valores
-    PairNameValueNode head;
+    private PairNameValueNode head;
+    //private PairNameValueNode currPosition;
 
     public VariablesList() {
         head = null;
@@ -46,12 +64,11 @@ public class VariablesList {
         return Double.NaN;
     }
 
-    public void printValues() {
-
+    public Iterator iterator() {
+        return new VariableIterator(head);
     }
 
-    private PairNameValueNode currPosition;
-
+    /*
     public String getFirst() {
         if (head == null) {
             currPosition = null;
@@ -68,5 +85,7 @@ public class VariablesList {
         String n = currPosition.name;
         currPosition = currPosition.next;
         return n;
-    }
+    }*/
+
+
 }
