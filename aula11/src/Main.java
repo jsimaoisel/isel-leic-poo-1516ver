@@ -23,17 +23,27 @@ class JFrameView implements IView {
     }
 }
 
-class PrintlineView implements IView {
-    public void valueChanged(int value) {
-        System.out.println("* " + value + " *");
-    }
-}
-
 public class Main {
 
     public static void main(String[] args) {
         ConsoleControl control = new ConsoleControl();
         //control.run(new PrintlineView());
-        control.run(new JFrameView());
+
+        final String arround = "+++ ";
+
+        class PrintlineView implements IView {
+            public void valueChanged(int value) {
+                System.out.println(arround + value + arround);
+            }
+        }
+
+        control.run(new IView() {
+            private JFrameView frame = new JFrameView();
+            private PrintlineView print = new PrintlineView();
+            public void valueChanged(int value) {
+                frame.valueChanged(value);
+                print.valueChanged(value);
+            }
+        });
     }
 }
