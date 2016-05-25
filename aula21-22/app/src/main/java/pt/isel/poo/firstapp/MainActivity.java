@@ -159,6 +159,25 @@ public class MainActivity
         System.out.println("@ THE END of onCreate()");
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        System.out.println("@ onPause()");
+    }
+
+    protected void onStop() {
+        super.onStop();
+        System.out.println("@ onStop()");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        System.out.println("@ onDestroy()");
+    }
+
+
+
     private void loadCounter() {
         try (FileInputStream in =
                      openFileInput("counter.txt")) {
